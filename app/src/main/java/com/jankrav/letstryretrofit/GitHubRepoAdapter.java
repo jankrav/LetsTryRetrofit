@@ -2,52 +2,50 @@ package com.jankrav.letstryretrofit;
 
 import android.content.Context;
 
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import java.util.List;
-
-
 
 
 /**
  * Created by jankr on 29.12.2017.
  */
 
-public class GitHubRepoAdapter extends ArrayAdapter<GitHubRepo> {
+public class GitHubRepoAdapter extends RecyclerView.Adapter<GitHubRepoAdapter.ViewRepoNamesHolder> {
     private Context context;
-    private List<GitHubRepo> values;
+    private List<GitHubRepo> repos;
 
-
-    public GitHubRepoAdapter(@NonNull Context context, @NonNull List<GitHubRepo> values) {
-        super(context, R.layout.list_item_pagination, values);
-
+    public GitHubRepoAdapter(Context context, List<GitHubRepo> repos) {
         this.context = context;
-        this.values = values;
+        this.repos = repos;
+    }
+    @Override
+    public ViewRepoNamesHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        Context context = parent.getContext();
+        LayoutInflater inflater = LayoutInflater.from(context);
+        return new ViewRepoNamesHolder(inflater.inflate(R.layout.list_item_pagination, parent, false));
     }
 
-    @NonNull
     @Override
-    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        View row = convertView;
+    public void onBindViewHolder(ViewRepoNamesHolder holder, int position) {
+        holder.nameOfRepo.setText(repos.get(position).getName());
+    }
 
-        if (row == null) {
-            LayoutInflater inflater =
-                    (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            row = inflater.inflate(R.layout.list_item_pagination, parent, false);
+    @Override
+    public int getItemCount() {
+        return repos.size();
+    }
+
+    protected class ViewRepoNamesHolder extends RecyclerView.ViewHolder {
+        TextView nameOfRepo;
+
+        public ViewRepoNamesHolder(View itemView) {
+            super(itemView);
+            nameOfRepo = itemView.findViewById(R.id.list_item_pagination_text);
         }
-
-        TextView textView = (TextView) row.findViewById(R.id.list_item_pagination_text);
-        GitHubRepo item = values.get(position);
-        String message = item.getName();
-        textView.setText(message);
-
-        return row;
     }
 }

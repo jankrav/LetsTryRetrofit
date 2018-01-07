@@ -1,9 +1,10 @@
 package com.jankrav.letstryretrofit;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+
 import android.widget.Toast;
 
 import java.util.List;
@@ -22,13 +23,20 @@ public class MainActivity extends AppCompatActivity {
 
     private OkHttpClient.Builder httpClient;
     private Retrofit.Builder builder;
-    private ListView listView;
+    //private ListView listView;
+    RecyclerView recyclerView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        listView = (ListView) findViewById(R.id.pagination_list);
+
+
+        recyclerView = (RecyclerView) findViewById(R.id.pagination_list);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+
         httpClient = new OkHttpClient.Builder();
         builder = new Retrofit.Builder()
                 .baseUrl(API_BASE_URL)
@@ -37,10 +45,9 @@ public class MainActivity extends AppCompatActivity {
                 );
         retrofit =
                 builder
-                        .client(
-                                httpClient.build()
-                        )
+                        .client(httpClient.build())
                         .build();
+
         //Create a very simple REST adapter which points the Github API endpoint
         client = retrofit.create(GitHubClient.class);
 
@@ -56,14 +63,7 @@ public class MainActivity extends AppCompatActivity {
 
                 List<GitHubRepo> repos = response.body();
                 Toast.makeText(MainActivity.this, "Vse ok, Bro", Toast.LENGTH_LONG).show();
-
-
-                listView.setAdapter(new GitHubRepoAdapter(MainActivity.this, repos));
-
-
-//                listView.setAdapter(new GitHubRepoAdapter(MainActivity.this, repos )
-
-
+                recyclerView.setAdapter(new GitHubRepoAdapter(MainActivity.this, repos));
             }
 
             @Override
