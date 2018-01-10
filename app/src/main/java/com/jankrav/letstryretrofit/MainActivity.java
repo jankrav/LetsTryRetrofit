@@ -23,8 +23,7 @@ public class MainActivity extends AppCompatActivity {
 
     private OkHttpClient.Builder httpClient;
     private Retrofit.Builder builder;
-    //private ListView listView;
-    RecyclerView recyclerView;
+    private RecyclerView recyclerView;
 
 
     @Override
@@ -52,25 +51,20 @@ public class MainActivity extends AppCompatActivity {
         client = retrofit.create(GitHubClient.class);
 
         //Fetch a list of the GITHUB repositiries
-        Call<List<GitHubRepo>> call = client.reposForUser("jankrav");
+        Call<List<GitHubRepo>> call = client.reposForUser("octocat");
 
         //Execute the call asynchronously. Get a positive or negative callback
         call.enqueue(new Callback<List<GitHubRepo>>() {
             @Override
             public void onResponse(Call<List<GitHubRepo>> call, Response<List<GitHubRepo>> response) {
-                //the network call was a success and we got a response
-                //TODO: use the repositiry list and display it
-
                 List<GitHubRepo> repos = response.body();
-                Toast.makeText(MainActivity.this, "Vse ok, Bro", Toast.LENGTH_LONG).show();
-                recyclerView.setAdapter(new GitHubRepoAdapter(MainActivity.this, repos));
+                Toast.makeText(MainActivity.this, "Everyth is OK, Bro", Toast.LENGTH_LONG).show();
+                recyclerView.setAdapter(new GitHubRepoAdapter(repos));
             }
 
             @Override
             public void onFailure(Call<List<GitHubRepo>> call, Throwable t) {
-                //the network call was a failure
-                //TODO: handle error
-                Toast.makeText(MainActivity.this, "error", Toast.LENGTH_LONG);
+                Toast.makeText(MainActivity.this, "The network call was a failure", Toast.LENGTH_LONG);
             }
         });
     }
