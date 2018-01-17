@@ -40,7 +40,7 @@ public class GitHubRepoAdapter extends RecyclerView.Adapter<GitHubRepoAdapter.Vi
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(context, GitHubRepoInformationActivity.class);
-//                intent.putExtra("GitHubRepoInformation", (Serializable) repos.get(position).getRepoInformation());
+                intent.putExtra("GitHubRepo", repos.get(position));
                 context.startActivity(intent);
 
             }

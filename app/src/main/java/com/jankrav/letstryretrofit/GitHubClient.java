@@ -15,6 +15,4 @@ public interface GitHubClient {
     Call<List<GitHubRepo>> reposForUser(
             @Path("user") String user
     );
-
-
 }

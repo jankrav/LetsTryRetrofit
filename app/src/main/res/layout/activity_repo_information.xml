@@ -1,20 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.jankrav.letstryretrofit.GitHubRepoInformationActivity">
+    tools:context="com.jankrav.letstryretrofit.GitHubRepoInformationActivity"
+    android:orientation="vertical">
+
+    //Repo name
     <TextView
+        android:id="@+id/textName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textStyle="bold"
-        android:textSize="24dp"
-        android:fontFamily="serif-monospace"
-        android:textAlignment="center"
-        android:text="Hello World!"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true" />
+        android:text="@string/repoName"/>
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=""/>
 
-</RelativeLayout>
+    // Description
+    <TextView
+        android:id="@+id/textDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/description"/>
+    <TextView
+        android:id="@+id/description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=""/>
+
+    //Language
+    <TextView
+        android:id="@+id/textLanguage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/language"/>
+    <TextView
+        android:id="@+id/language"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=""/>
+
+    //default branch
+    <TextView
+        android:id="@+id/textDefaultBranch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/defaultBranch"/>
+    <TextView
+        android:id="@+id/defaultBranch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=""/>
+
+    //watchers
+    <TextView
+        android:id="@+id/textWatchers"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/watchers"/>
+    <TextView
+        android:id="@+id/watchers"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=""/>
+
+
+</LinearLayout>
