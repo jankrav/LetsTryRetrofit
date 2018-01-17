@@ -16,4 +16,5 @@ public interface GitHubClient {
             @Path("user") String user
     );
 
+
 }

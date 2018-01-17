@@ -10,6 +10,7 @@ import android.widget.Toast;
 import java.util.List;
 
 import okhttp3.OkHttpClient;
+import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -37,15 +38,18 @@ public class MainActivity extends AppCompatActivity {
 
 
         httpClient = new OkHttpClient.Builder();
+
+        HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
+        logging.setLevel(HttpLoggingInterceptor.Level.BODY);
+        httpClient.addInterceptor(logging);
+
         builder = new Retrofit.Builder()
                 .baseUrl(API_BASE_URL)
-                .addConverterFactory(
-                        GsonConverterFactory.create()
-                );
-        retrofit =
-                builder
-                        .client(httpClient.build())
-                        .build();
+                .addConverterFactory(GsonConverterFactory.create())
+                .client(httpClient.build());
+
+
+        retrofit = builder.build();
 
         //Create a very simple REST adapter which points the Github API endpoint
         client = retrofit.create(GitHubClient.class);
