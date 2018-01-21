@@ -8,6 +8,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.jankrav.letstryretrofit.model.GitHubRepo;
+
 import java.util.List;
 
 public class GitHubRepoAdapter extends RecyclerView.Adapter<GitHubRepoAdapter.ViewRepoNamesHolder> {

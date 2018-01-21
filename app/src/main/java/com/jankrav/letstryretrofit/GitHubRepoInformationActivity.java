@@ -4,6 +4,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import com.jankrav.letstryretrofit.model.GitHubRepo;
+
 public class GitHubRepoInformationActivity extends AppCompatActivity {
 
     @Override

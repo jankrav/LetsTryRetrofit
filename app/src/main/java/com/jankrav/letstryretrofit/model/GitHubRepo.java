@@ -1,4 +1,4 @@
-package com.jankrav.letstryretrofit;
+package com.jankrav.letstryretrofit.model;
 
 import com.google.gson.annotations.SerializedName;
 

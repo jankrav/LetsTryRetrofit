@@ -1,5 +1,7 @@
 package com.jankrav.letstryretrofit;
 
+import com.jankrav.letstryretrofit.model.GitHubRepo;
+
 import java.util.List;
 
 import retrofit2.Call;
