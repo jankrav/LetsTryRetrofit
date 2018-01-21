@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.jankrav.letstryretrofit.client.GitHubClient;
 import com.jankrav.letstryretrofit.model.GitHubRepo;
 
 import okhttp3.OkHttpClient;

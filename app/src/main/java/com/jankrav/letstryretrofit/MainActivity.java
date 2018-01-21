@@ -6,6 +6,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.Toast;
 
+import com.jankrav.letstryretrofit.client.GitHubClient;
 import com.jankrav.letstryretrofit.model.GitHubRepo;
 
 import java.util.List;

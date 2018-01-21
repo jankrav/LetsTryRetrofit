@@ -1,4 +1,4 @@
-package com.jankrav.letstryretrofit;
+package com.jankrav.letstryretrofit.client;
 
 import com.jankrav.letstryretrofit.model.GitHubRepo;
 
