@@ -8,14 +8,13 @@ public class GitHubRepo implements Serializable {
     private Integer id;
     private String name;
     private String description;
-
     private Integer watchers;
-
     private String language;
-
-
     @SerializedName("default_branch")
     private String defaultBranch;
+
+    @SerializedName("owner")
+    private GitHubRepoOwner owner;
 
     public GitHubRepo() {
     }
@@ -42,6 +41,10 @@ public class GitHubRepo implements Serializable {
 
     public String getDescription() {
         return description;
+    }
+
+    public GitHubRepoOwner getOwner() {
+        return owner;
     }
 
     @Override
