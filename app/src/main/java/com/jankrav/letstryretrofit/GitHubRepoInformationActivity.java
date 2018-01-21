@@ -30,4 +30,5 @@ public class GitHubRepoInformationActivity extends AppCompatActivity {
         defaultBranch.setText(gitHubRepo.getDefaultBranch());
         watchers.setText(gitHubRepo.getWatchers().toString());
     }
+
 }

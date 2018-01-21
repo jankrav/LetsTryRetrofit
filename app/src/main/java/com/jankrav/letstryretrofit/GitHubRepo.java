@@ -1,20 +1,21 @@
 package com.jankrav.letstryretrofit;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.io.Serializable;
 
-/**
- * Created by jankr on 28.12.2017.
- */
-
 public class GitHubRepo implements Serializable {
-    private Integer id = null;
-    private String name = null;
-    private String description = null;
+    private Integer id;
+    private String name;
+    private String description;
 
-    private Integer watchers = null;
+    private Integer watchers;
 
-    private String language = null;
-    private String default_branch = null;
+    private String language;
+
+
+    @SerializedName("default_branch")
+    private String defaultBranch;
 
     public GitHubRepo() {
     }
@@ -24,12 +25,13 @@ public class GitHubRepo implements Serializable {
     }
 
     public String getDefaultBranch() {
-        return default_branch;
+        return defaultBranch;
     }
 
     public Integer getWatchers() {
         return watchers;
     }
+
     public int getId() {
         return id;
     }
