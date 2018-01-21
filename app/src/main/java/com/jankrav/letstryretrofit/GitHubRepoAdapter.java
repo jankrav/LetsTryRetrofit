@@ -35,9 +35,11 @@ public class GitHubRepoAdapter extends RecyclerView.Adapter<GitHubRepoAdapter.Vi
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(context, GitHubRepoInformationActivity.class);
-                intent.putExtra("GitHubRepo", repos.get(position));
-                context.startActivity(intent);
 
+                intent.putExtra("OWNER", repos.get(position).getOwner().getLogin());
+                intent.putExtra("REPO", repos.get(position).getName());
+
+                context.startActivity(intent);
             }
         });
     }

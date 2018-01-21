@@ -2,9 +2,7 @@ package com.jankrav.letstryretrofit.model;
 
 import com.google.gson.annotations.SerializedName;
 
-import java.io.Serializable;
-
-public class GitHubRepo implements Serializable {
+public class GitHubRepo {
     private Integer id;
     private String name;
     private String description;
@@ -49,6 +47,6 @@ public class GitHubRepo implements Serializable {
 
     @Override
     public String toString() {
-        return id.toString() + " " + name;
+        return "repo: " + id.toString() + " " + name + " " + owner.toString();
     }
 }

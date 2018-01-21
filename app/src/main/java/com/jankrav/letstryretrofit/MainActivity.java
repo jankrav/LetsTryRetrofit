@@ -19,6 +19,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
+
     private static String API_BASE_URL = "https://api.github.com";
     private GitHubClient client;
     private Retrofit retrofit;
@@ -71,6 +72,7 @@ public class MainActivity extends AppCompatActivity {
             public void onFailure(Call<List<GitHubRepo>> call, Throwable t) {
                 Toast.makeText(MainActivity.this, "The network call was a failure", Toast.LENGTH_LONG);
             }
+
         });
     }
 }
