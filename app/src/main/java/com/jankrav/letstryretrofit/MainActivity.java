@@ -4,10 +4,13 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.jankrav.letstryretrofit.client.GitHubClient;
 import com.jankrav.letstryretrofit.model.GitHubRepo;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -58,13 +61,22 @@ public class MainActivity extends AppCompatActivity {
         client = retrofit.create(GitHubClient.class);
 
         //Fetch a list of the GITHUB repositiries
-        Call<List<GitHubRepo>> call = client.reposForUser("octocat");
+        Call<List<GitHubRepo>> call = client.reposForUser("jankrav");
 
         //Execute the call asynchronously. Get a positive or negative callback
         call.enqueue(new Callback<List<GitHubRepo>>() {
             @Override
             public void onResponse(Call<List<GitHubRepo>> call, Response<List<GitHubRepo>> response) {
                 List<GitHubRepo> repos = response.body();
+                //
+                //show avatar photo of owner
+                Picasso
+                        .with(MainActivity.this)
+                        .load(repos.get(0).getOwner().getAvatarUrl())
+                        .into((ImageView) findViewById(R.id.avatarPhoto));
+                TextView login = (TextView) findViewById(R.id.login);
+                login.setText(repos.get(0).getOwner().getLogin());
+
                 Toast.makeText(MainActivity.this, "Everyth is OK, Bro", Toast.LENGTH_LONG).show();
                 recyclerView.setAdapter(new GitHubRepoAdapter(repos));
             }
