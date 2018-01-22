@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">LetsTryRetrofit</string>
-    <string name="defaultBranch">Default Branch :</string>
-    <string name="watchers">Watchers :</string>
-    <string name="language">Language :</string>
-    <string name="description">Description :</string>
-    <string name="repoName">Name :</string>
+    <string name="defaultBranch">default branch: </string>
+    <string name="watchers">Watchers: </string>
+    <string name="language">Language: </string>
+    <string name="description">Description: </string>
+    <string name="repoName">Name: </string>
 </resources>

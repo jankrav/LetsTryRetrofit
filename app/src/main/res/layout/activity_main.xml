@@ -39,12 +39,12 @@
         android:id="@+id/repoView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
         android:layout_below="@id/header"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:text="Repositories"
         android:textSize="24dp"
-        android:textStyle="italic|bold"
-        android:text="Repositories" />
+        android:textStyle="italic|bold" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/pagination_list"

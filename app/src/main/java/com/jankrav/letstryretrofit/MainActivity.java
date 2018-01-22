@@ -74,6 +74,7 @@ public class MainActivity extends AppCompatActivity {
                         .with(MainActivity.this)
                         .load(repos.get(0).getOwner().getAvatarUrl())
                         .into((ImageView) findViewById(R.id.avatarPhoto));
+
                 TextView login = (TextView) findViewById(R.id.login);
                 login.setText(repos.get(0).getOwner().getLogin());
 

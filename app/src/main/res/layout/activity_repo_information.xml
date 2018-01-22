@@ -1,72 +1,89 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
 
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.jankrav.letstryretrofit.GitHubRepoInformationActivity"
-    android:orientation="vertical">
 
-    //Repo name
-    <TextView
-        android:id="@+id/textName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/repoName"/>
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+
+    tools:context="com.jankrav.letstryretrofit.GitHubRepoInformationActivity">
+
+    <!--name-->
+
     <TextView
         android:id="@+id/name"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text=""/>
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:text="no-name-repository"
+        android:textSize="24dp"
+        android:textStyle="bold" />
 
-    // Description
     <TextView
-        android:id="@+id/textDescription"
-        android:layout_width="match_parent"
+        android:id="@+id/language"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/description"/>
+        android:layout_marginTop="6dp"
+        android:layout_alignLeft="@id/name"
+        android:layout_below="@id/name"
+        android:layout_marginBottom="@dimen/activity_horizontal_margin"
+        android:text="language is not specified"
+        android:textColor="@color/colorYellow"
+        android:textSize="16dp" />
+
+
+    <!--description-->
     <TextView
         android:id="@+id/description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text=""/>
+        android:layout_alignLeft="@id/language"
+        android:layout_below="@id/language"
+        android:layout_marginBottom="@dimen/activity_vertical_margin"
+        android:text="Repository hasn't any description!"
+        android:textSize="18dp"
+        android:textStyle="italic" />
 
-    //Language
-    <TextView
-        android:id="@+id/textLanguage"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/language"/>
-    <TextView
-        android:id="@+id/language"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text=""/>
-
-    //default branch
-    <TextView
-        android:id="@+id/textDefaultBranch"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/defaultBranch"/>
-    <TextView
-        android:id="@+id/defaultBranch"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text=""/>
-
-    //watchers
+    <!--watchers-->
     <TextView
         android:id="@+id/textWatchers"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/watchers"/>
+        android:layout_alignLeft="@id/description"
+        android:layout_below="@id/description"
+        android:text="@string/watchers" />
+
     <TextView
         android:id="@+id/watchers"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text=""/>
+        android:layout_marginLeft="@dimen/activity_component_margin"
+        android:layout_alignBottom="@id/textWatchers"
+        android:layout_toRightOf="@id/textWatchers"
 
+        android:text="0" />
 
-</LinearLayout>
+    <!--defaultBranch-->
+    <TextView
+        android:id="@+id/defaultBranchText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/textWatchers"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_toRightOf="@id/watchers"
+        android:text="@string/defaultBranch" />
+
+    <TextView
+        android:id="@+id/defaultBranch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/activity_component_margin"
+        android:layout_alignBottom="@id/defaultBranchText"
+        android:layout_toRightOf="@id/defaultBranchText"
+        android:text="master" />
+</RelativeLayout>

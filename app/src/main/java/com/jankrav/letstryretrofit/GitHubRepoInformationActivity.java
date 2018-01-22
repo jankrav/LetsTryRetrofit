@@ -2,6 +2,8 @@ package com.jankrav.letstryretrofit;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -56,25 +58,34 @@ public class GitHubRepoInformationActivity extends AppCompatActivity {
         client = retrofit.create(GitHubClient.class);
 
         Call<GitHubRepo> call = client.repoForUser(owner, repo);
+
+
         call.enqueue(new Callback<GitHubRepo>() {
             @Override
             public void onResponse(Call<GitHubRepo> call, Response<GitHubRepo> response) {
                 gitHubRepo = response.body();
 
-                name.setText(gitHubRepo.getName());
-                description.setText(gitHubRepo.getDescription());
+                String str = gitHubRepo.getName();
+                if(!TextUtils.isEmpty(str))name.setText(str);
 
+                str = gitHubRepo.getDescription();
+                if(!TextUtils.isEmpty(str)) description.setText(str);
 
-                language.setText(gitHubRepo.getLanguage());
-                defaultBranch.setText(gitHubRepo.getDefaultBranch());
-                watchers.setText(gitHubRepo.getWatchers().toString());
+                str = gitHubRepo.getLanguage();
+                if(!TextUtils.isEmpty(str))language.setText(str);
+
+                str = gitHubRepo.getDefaultBranch();
+                if(!TextUtils.isEmpty(str))defaultBranch.setText(str);
+
+                str = gitHubRepo.getWatchers().toString();
+                if(!TextUtils.isEmpty(str))watchers.setText(str);
 
                 Toast.makeText(GitHubRepoInformationActivity.this, "Everyth is OK, Bro", Toast.LENGTH_LONG).show();
             }
 
             @Override
             public void onFailure(Call<GitHubRepo> call, Throwable t) {
-                Toast.makeText(GitHubRepoInformationActivity.this, "The network call was a failure", Toast.LENGTH_LONG);
+                Toast.makeText(GitHubRepoInformationActivity.this, "The network call was a failure", Toast.LENGTH_LONG).show();
             }
         });
     }
