@@ -2,6 +2,7 @@ package com.jankrav.letstryretrofit;
 
 import android.content.Context;
 import android.content.Intent;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -31,14 +32,12 @@ public class GitHubRepoAdapter extends RecyclerView.Adapter<GitHubRepoAdapter.Vi
     public void onBindViewHolder(ViewRepoNamesHolder holder, final int position) {
         holder.nameOfRepo.setText(repos.get(position).getName());
 
-        holder.nameOfRepo.setOnClickListener(new View.OnClickListener() {
+        holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(context, GitHubRepoInformationActivity.class);
-
                 intent.putExtra("OWNER", repos.get(position).getOwner().getLogin());
                 intent.putExtra("REPO", repos.get(position).getName());
-
                 context.startActivity(intent);
             }
         });
@@ -50,11 +49,13 @@ public class GitHubRepoAdapter extends RecyclerView.Adapter<GitHubRepoAdapter.Vi
     }
 
     protected class ViewRepoNamesHolder extends RecyclerView.ViewHolder {
-        TextView nameOfRepo;
+        private TextView nameOfRepo;
+        private CardView cardView;
 
         public ViewRepoNamesHolder(View itemView) {
             super(itemView);
             nameOfRepo = itemView.findViewById(R.id.list_item_pagination_text);
+            cardView   = itemView.findViewById(R.id.cardView);
         }
     }
 }
