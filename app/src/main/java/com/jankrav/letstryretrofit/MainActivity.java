@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         final TextView login = (TextView) findViewById(R.id.login);
         final ImageView avatarPhoto = (ImageView) findViewById(R.id.avatarPhoto);
 
-        recyclerView = (RecyclerView) findViewById(R.id.pagination_list);
+        recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         //creating retrofit client
