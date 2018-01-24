@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
         client = ServiceGenerator.getDefaultService();
 
         //Fetch a list of the GITHUB repositiries
-        Call<List<GitHubRepo>> call = client.reposForUser("jankrav");
+        Call<List<GitHubRepo>> call = client.reposForUser("mykola-tarchanyn");
 
         //Execute the call asynchronously
         call.enqueue(new Callback<List<GitHubRepo>>() {

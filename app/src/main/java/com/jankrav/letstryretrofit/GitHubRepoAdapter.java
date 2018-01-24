@@ -25,7 +25,7 @@ public class GitHubRepoAdapter extends RecyclerView.Adapter<GitHubRepoAdapter.Vi
     public ViewRepoNamesHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         context = parent.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
-        return new ViewRepoNamesHolder(inflater.inflate(R.layout.list_item_pagination, parent, false));
+        return new ViewRepoNamesHolder(inflater.inflate(R.layout.list_item_recycler_view, parent, false));
     }
 
     @Override
@@ -54,7 +54,7 @@ public class GitHubRepoAdapter extends RecyclerView.Adapter<GitHubRepoAdapter.Vi
 
         public ViewRepoNamesHolder(View itemView) {
             super(itemView);
-            nameOfRepo = itemView.findViewById(R.id.list_item_pagination_text);
+            nameOfRepo = itemView.findViewById(R.id.list_item_repo_name);
             cardView   = itemView.findViewById(R.id.cardView);
         }
     }

@@ -7,4 +7,9 @@
     <string name="repoName">Name: </string>
     <string name="repoView">Repositories</string>
     <string name="login">developer login</string>
+    <string name="default_name_repo_field">no-name-repository</string>
+    <string name="default_language_field">language is not specified</string>
+    <string name="default_description_field">Repository hasn\'t any description!</string>
+
+
 </resources>
